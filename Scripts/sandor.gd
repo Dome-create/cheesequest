@@ -21,5 +21,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+# Get the input direction and handle the movement/deceleration.
+	if direction != 0:
+		$SandorExport.scale.x = direction
 	move_and_slide()
