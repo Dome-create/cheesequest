@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cethowkibaw0r"
-path="res://.godot/imported/sandor-export.png-9de06abedd36a0747111b08ff72edd0a.ctex"
+path="res://.godot/imported/sandor-export.png-edba7f29fec45225649379358b4d0f51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sandor-export.png"
-dest_files=["res://.godot/imported/sandor-export.png-9de06abedd36a0747111b08ff72edd0a.ctex"]
+source_file="res://Sprites_img/sandor-export.png"
+dest_files=["res://.godot/imported/sandor-export.png-edba7f29fec45225649379358b4d0f51.ctex"]
 
 [params]
 

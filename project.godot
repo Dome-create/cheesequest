@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Cheesequest"
-run/main_scene="uid://c4jm11d6nulue"
+run/main_scene="uid://dxdyebbun37h"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites_img/icon.svg"
+
+[display]
+
+window/size/viewport_width=1980
+window/size/viewport_height=1080
 
 [input]
 
