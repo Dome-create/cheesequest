@@ -22,7 +22,7 @@ offset_bottom = 788.0
 theme_override_fonts/font = ExtResource("1_c4tk2")
 theme_override_font_sizes/font_size = 40
 text = "Exit ze game😟😭😭😭"
-script = ExtResource("2_rmbjf")
+script = ExtResource("3_b7rmo")
 
 [node name="Play_btn" type="Button" parent="."]
 layout_mode = 0
@@ -34,7 +34,7 @@ theme_override_fonts/font = ExtResource("1_c4tk2")
 theme_override_font_sizes/font_size = 40
 text = "Go on a quest...
 FOR 🧀"
-script = ExtResource("3_b7rmo")
+script = ExtResource("2_rmbjf")
 
 [connection signal="pressed" from="Exit_btn" to="Exit_btn" method="_on_pressed"]
 [connection signal="pressed" from="Play_btn" to="Play_btn" method="_on_pressed"]
