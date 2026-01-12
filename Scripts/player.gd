@@ -13,6 +13,8 @@ var dash_timer = 1
 var dash_cooldown_timer = 0.5
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("esc"):
+		get_tree().change_scene_to_file("res://Scenes/Main_Menu.tscn")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += (get_gravity() * 1.5) * delta + Vector2(0, 20)
@@ -21,9 +23,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_just_pressed("esc"):
-		get_tree().change_scene_to_file("res://Scenes/Main_Menu.tscn")
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	# Horizontal input
