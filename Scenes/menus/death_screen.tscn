@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq8qghfyvqlrf"]
+[gd_scene load_steps=5 format=3 uid="uid://cq8qghfyvqlrf"]
 
 [ext_resource type="FontFile" uid="uid://drkfacc35ui2y" path="res://Fonts/beautiful.TTF" id="1_8hps1"]
+[ext_resource type="Texture2D" uid="uid://b1g63qj8eaqeg" path="res://Sprites_img/died.png" id="1_xv2ax"]
 [ext_resource type="Script" uid="uid://cjnum0mrp8qji" path="res://Scripts/menus/death screen/exit_btn.gd" id="2_rwas2"]
 [ext_resource type="Script" uid="uid://dvxvbbn7xujv7" path="res://Scripts/menus/death screen/restart_btn.gd" id="3_tseak"]
 
@@ -11,6 +12,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Died" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(3.8399997, 2.1599998)
+texture = ExtResource("1_xv2ax")
 
 [node name="exit_btn" type="Button" parent="."]
 layout_mode = 0
