@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://c0pti40k7k6a2" path="res://Anim/Sandor_idle/idlesanyi20.png" id="21_jqxfd"]
 [ext_resource type="Texture2D" uid="uid://dobimjsqbsafl" path="res://Anim/Sandor_idle/idlesanyi21.png" id="22_jlbn8"]
 [ext_resource type="Texture2D" uid="uid://bld3fq8vsdqk" path="res://Anim/Sandor_idle/idlesanyi22.png" id="23_y3rxt"]
-[ext_resource type="Script" uid="uid://cfu2d4syywvl7" path="res://Scripts/health.gd" id="24_vlwdv"]
+[ext_resource type="Script" path="res://Scripts/health.gd" id="24_vlwdv"]
 [ext_resource type="Script" uid="uid://bemae2a7h3b26" path="res://Scripts/menus/health_bar.gd" id="25_udjif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e25a"]
