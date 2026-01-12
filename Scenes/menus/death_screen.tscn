@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq8qghfyvqlrf"]
+
+[ext_resource type="FontFile" uid="uid://drkfacc35ui2y" path="res://Fonts/beautiful.TTF" id="1_8hps1"]
+[ext_resource type="Script" uid="uid://cjnum0mrp8qji" path="res://Scripts/menus/death screen/exit_btn.gd" id="2_rwas2"]
+[ext_resource type="Script" uid="uid://dvxvbbn7xujv7" path="res://Scripts/menus/death screen/restart_btn.gd" id="3_tseak"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="exit_btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 670.0
+offset_right = 1160.0
+offset_bottom = 770.0
+theme_override_fonts/font = ExtResource("1_8hps1")
+theme_override_font_sizes/font_size = 40
+text = "Exit to menu😥😭"
+script = ExtResource("2_rwas2")
+
+[node name="restart_btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 440.0
+offset_right = 1160.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("1_8hps1")
+theme_override_font_sizes/font_size = 40
+text = "Restart👍👍👍"
+script = ExtResource("3_tseak")
+
+[connection signal="pressed" from="exit_btn" to="exit_btn" method="_on_pressed"]
+[connection signal="pressed" from="restart_btn" to="restart_btn" method="_on_pressed"]
