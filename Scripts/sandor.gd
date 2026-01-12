@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const WALK = 200
 const JUMP_VELOCITY = -400.0
-
+const SPRINT = 400
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -20,10 +20,10 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
+	if Input.is_action_pressed("sprint"):
+		velocity.x = direction * SPRINT
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = direction * WALK
 # Get the input direction and handle the movement/deceleration.
 	if direction != 0:
 		$SandorExport.scale.x = direction
