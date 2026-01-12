@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://lre4whw1itk"]
 
-[ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/sandor.gd" id="1_0e25a"]
+[ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
 [ext_resource type="Texture2D" uid="uid://d2cdwjiyqpc0o" path="res://Anim/Sandor_idle/idlesanyi1.png" id="2_lboun"]
 [ext_resource type="Texture2D" uid="uid://650jyujslbc4" path="res://Anim/Sandor_idle/idlesanyi2.png" id="3_vlwdv"]
 [ext_resource type="Texture2D" uid="uid://q1tet77e02e5" path="res://Anim/Sandor_idle/idlesanyi3.png" id="4_udjif"]
