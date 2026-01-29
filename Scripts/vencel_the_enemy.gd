@@ -1,25 +1,30 @@
 extends Area2D
 
-@export var max_health = 50
-var health = max_health
-@onready var health_bar = $ProgressBar
+var enemy_health :int
+@export var max_health := 5
 
+func _ready() -> void:
+	$".".visible = true
+	$VencelHealth.max_value = max_health
+	$VencelHealth.value = enemy_health
 
-func _ready():
-	health_bar.max_value = max_health
-	health_bar.value = health
+func die():
+	print("Died")
+	$".".queue_free()
+
+func damage(amount :int):
+	print("Enemy took " + str(amount) + " damage")
+	enemy_health -= amount
+	enemy_health = max(enemy_health, 0)
+	$VencelHealth.value = enemy_health
+	
+	if enemy_health <= 0:
+		die()
 
 func _on_body_entered(body):
 	if body.name == "Player":
 		body.get_node("Health").take_damage(10)
 
-func take_damage(amount: int):
-	health -= amount
-	health_bar.value = health
-
-	if health <= 0:
-		queue_free()
-func _on_area_entered(area):
-	if area.name == "attackhitbox":
-		print("entered")
-		take_damage(10)
+func _on_area_entered(area: Area2D) -> void:
+	#if body.name == "AttackHitbox":
+	damage(5)
