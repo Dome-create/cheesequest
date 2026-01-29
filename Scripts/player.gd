@@ -1,4 +1,8 @@
 extends CharacterBody2D
+#attacking valtozok
+@onready var attack_hitbox = $attackhitbox
+const ATTACK_TIME = 0.15
+var is_attacking = false
 
 var dash_direction = 0
 const WALK = 200
@@ -20,6 +24,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		start_attack()
+
 		
 	if Input.is_action_just_pressed("esc"):
 		get_tree().change_scene_to_file("res://Scenes/menus/Main_Menu.tscn")
@@ -53,6 +61,26 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = direction * WALK
 # Get the input direction and handle the movement/deceleration.
+	if Input.is_action_pressed("down") and Input.is_action_pressed("attack") and not is_on_floor():
+		velocity.y = 1400
+		
+	#sprite direction
 	if direction != 0:
 		$SandorExport.scale.x = direction
+	#groundpound
 	move_and_slide()
+	
+func start_attack():
+	is_attacking = true
+	attack_hitbox.monitoring = true
+
+	# Position hitbox in front of player
+	attack_hitbox.position.x = 40 * sign($SandorExport.scale.x)
+
+	await get_tree().create_timer(ATTACK_TIME).timeout
+
+	attack_hitbox.monitoring = false
+	is_attacking = false
+	
+
+	

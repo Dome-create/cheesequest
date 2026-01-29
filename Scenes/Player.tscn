@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lre4whw1itk"]
+[gd_scene load_steps=29 format=3 uid="uid://lre4whw1itk"]
 
 [ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
 [ext_resource type="Texture2D" uid="uid://d2cdwjiyqpc0o" path="res://Anim/Sandor_idle/idlesanyi1.png" id="2_lboun"]
@@ -108,6 +108,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70hv0"]
+size = Vector2(65, 13)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0e25a")
 
@@ -135,3 +138,11 @@ offset_right = 475.0
 offset_bottom = 264.9995
 step = 1.0
 script = ExtResource("25_udjif")
+
+[node name="attackhitbox" type="Area2D" parent="."]
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackhitbox"]
+shape = SubResource("RectangleShape2D_70hv0")
