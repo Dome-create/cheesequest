@@ -1,30 +1,68 @@
 extends CharacterBody2D
+# BIG JUMP / CHARGE JUMP
+var is_charging_jump := false
+var was_in_air := false
+
+const BIG_JUMP_VELOCITY := -1400
+const ROTATE_SPEED := 6.0
+
 #attacking valtozok
 @onready var attack_hitbox = $attackhitbox
 const ATTACK_TIME = 0.15
 var is_attacking = false
 
+#walkin
 var dash_direction = 0
 const WALK = 200
 const JUMP_VELOCITY = -800
 const SPRINT = 400
+var smol= -400
+var hanyszo = 0
+
+#dash, wait is this a reference?!
+var can_dash = true
 const DASH_SPEED = 1000       # Speed during dash
 const DASH_TIME = 0.2       # How long dash lasts (seconds)
 const DASH_COOLDOWN = 0.5     # Time before you can dash again
-
 var is_dashing = false
 var dash_timer = 1
 var dash_cooldown_timer = 0.5
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# gravity.
 	if not is_on_floor():
 		velocity += (get_gravity() * 1.3) * delta + Vector2(0, 20)
+	# --- AIR → LAND DETECTION ---
+		was_in_air = true
+	elif was_in_air:
+		# just landed
+		if Input.is_action_pressed("springy"):
+			is_charging_jump = true
+			velocity = Vector2.ZERO
+		was_in_air = false
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# --- NORMAL JUMP ---
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_charging_jump:
 		velocity.y = JUMP_VELOCITY
+	# --- BIG JUMP RELEASE ---
+	if is_charging_jump and Input.is_action_just_released("springy"):
+		is_charging_jump = false
+		velocity.y = BIG_JUMP_VELOCITY
 		
+	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		hanyszo += 1
+		if hanyszo <= 3:
+			velocity.y = smol
+	# --- CHARGING STATE ---
+	if is_charging_jump:
+		velocity.x = 0
+		move_and_slide()
+		return
+		
+	if is_on_floor():
+		hanyszo = 0
+		can_dash = true
+
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		start_attack()
 
@@ -39,7 +77,8 @@ func _physics_process(delta: float) -> void:
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
 
-	if Input.is_action_just_pressed("dive") and dash_cooldown_timer <= 0:
+	if Input.is_action_just_pressed("dive") and dash_cooldown_timer <= 0 and can_dash:
+		can_dash = false
 		is_dashing = true
 		dash_timer = DASH_TIME
 		dash_cooldown_timer = DASH_COOLDOWN
@@ -66,7 +105,8 @@ func _physics_process(delta: float) -> void:
 		
 	#sprite direction
 	if direction != 0:
-		$SandorExport.scale.x = direction
+		$SandorExport.flip_h = direction < 0
+
 	#groundpound
 	move_and_slide()
 	

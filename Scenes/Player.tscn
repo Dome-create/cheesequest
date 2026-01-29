@@ -1,28 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://lre4whw1itk"]
+[gd_scene load_steps=8 format=3 uid="uid://lre4whw1itk"]
 
 [ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
-[ext_resource type="Texture2D" uid="uid://d2cdwjiyqpc0o" path="res://Anim/Sandor_idle/idlesanyi1.png" id="2_lboun"]
-[ext_resource type="Texture2D" uid="uid://650jyujslbc4" path="res://Anim/Sandor_idle/idlesanyi2.png" id="3_vlwdv"]
-[ext_resource type="Texture2D" uid="uid://q1tet77e02e5" path="res://Anim/Sandor_idle/idlesanyi3.png" id="4_udjif"]
-[ext_resource type="Texture2D" uid="uid://c1txxfe05t7b0" path="res://Anim/Sandor_idle/idlesanyi4.png" id="5_ys570"]
-[ext_resource type="Texture2D" uid="uid://8acm07mob0ql" path="res://Anim/Sandor_idle/idlesanyi5.png" id="6_lfoxo"]
-[ext_resource type="Texture2D" uid="uid://bc02vr1uj7mey" path="res://Anim/Sandor_idle/idlesanyi6.png" id="7_epc28"]
-[ext_resource type="Texture2D" uid="uid://dkbvqgaqkbhkr" path="res://Anim/Sandor_idle/idlesanyi7.png" id="8_30s6x"]
-[ext_resource type="Texture2D" uid="uid://kw1uh7kh8pd6" path="res://Anim/Sandor_idle/idlesanyi8.png" id="9_tuh2a"]
-[ext_resource type="Texture2D" uid="uid://bfa7qkpyf1lsg" path="res://Anim/Sandor_idle/idlesanyi9.png" id="10_tgnm0"]
-[ext_resource type="Texture2D" uid="uid://3dlke1e5yjr5" path="res://Anim/Sandor_idle/idlesanyi10.png" id="11_0q8px"]
-[ext_resource type="Texture2D" uid="uid://cae1nbnfkc8k6" path="res://Anim/Sandor_idle/idlesanyi11.png" id="12_32jux"]
-[ext_resource type="Texture2D" uid="uid://bjmb6lfnd2smj" path="res://Anim/Sandor_idle/idlesanyi12.png" id="13_5mbtt"]
-[ext_resource type="Texture2D" uid="uid://4d2ce54u3585" path="res://Anim/Sandor_idle/idlesanyi13.png" id="14_towal"]
-[ext_resource type="Texture2D" uid="uid://dt1tb4e0iq008" path="res://Anim/Sandor_idle/idlesanyi14.png" id="15_obfv0"]
-[ext_resource type="Texture2D" uid="uid://la45bdcmd34a" path="res://Anim/Sandor_idle/idlesanyi15.png" id="16_enk3e"]
-[ext_resource type="Texture2D" uid="uid://dkuw2frs3gpva" path="res://Anim/Sandor_idle/idlesanyi16.png" id="17_ahaln"]
-[ext_resource type="Texture2D" uid="uid://dplitdm0c5mf2" path="res://Anim/Sandor_idle/idlesanyi17.png" id="18_lpkpn"]
-[ext_resource type="Texture2D" uid="uid://b85ub1f8j5aw7" path="res://Anim/Sandor_idle/idlesanyi18.png" id="19_utdlo"]
-[ext_resource type="Texture2D" uid="uid://dv3ft4y3c2twg" path="res://Anim/Sandor_idle/idlesanyi19.png" id="20_0gm1e"]
-[ext_resource type="Texture2D" uid="uid://c0pti40k7k6a2" path="res://Anim/Sandor_idle/idlesanyi20.png" id="21_jqxfd"]
-[ext_resource type="Texture2D" uid="uid://dobimjsqbsafl" path="res://Anim/Sandor_idle/idlesanyi21.png" id="22_jlbn8"]
-[ext_resource type="Texture2D" uid="uid://bld3fq8vsdqk" path="res://Anim/Sandor_idle/idlesanyi22.png" id="23_y3rxt"]
+[ext_resource type="Texture2D" uid="uid://pvxborls7ty2" path="res://Sprites_img/icon.svg" id="2_dewec"]
 [ext_resource type="Script" path="res://Scripts/health.gd" id="24_vlwdv"]
 [ext_resource type="Script" uid="uid://bemae2a7h3b26" path="res://Scripts/menus/health_bar.gd" id="25_udjif"]
 
@@ -38,70 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lboun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_vlwdv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_udjif")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ys570")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_lfoxo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_epc28")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_30s6x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_tuh2a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_tgnm0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_0q8px")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_32jux")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_5mbtt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_towal")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_obfv0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_enk3e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_ahaln")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_lpkpn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_utdlo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_0gm1e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_jqxfd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_jlbn8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_y3rxt")
+"texture": ExtResource("2_dewec")
 }],
 "loop": true,
 "name": &"idle",
@@ -122,6 +38,8 @@ shape = SubResource("RectangleShape2D_0e25a")
 zoom = Vector2(2, 2)
 
 [node name="SandorExport" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.0000038, 3.8146973e-06)
+scale = Vector2(0.4765625, 0.46875)
 sprite_frames = SubResource("SpriteFrames_0mc3r")
 animation = &"idle"
 autoplay = "idle"
@@ -146,3 +64,5 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackhitbox"]
 shape = SubResource("RectangleShape2D_70hv0")
+
+[node name="Timer" type="Timer" parent="."]
