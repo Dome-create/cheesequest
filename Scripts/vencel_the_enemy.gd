@@ -1,9 +1,10 @@
 extends Area2D
 
 var enemy_health :int
-@export var max_health := 5
+@export var max_health := 100
 
 func _ready() -> void:
+	enemy_health = max_health
 	$".".visible = true
 	$VencelHealth.max_value = max_health
 	$VencelHealth.value = enemy_health
@@ -26,5 +27,6 @@ func _on_body_entered(body):
 		body.get_node("Health").take_damage(10)
 
 func _on_area_entered(area: Area2D) -> void:
+	print("I have been hurt :(")
 	#if body.name == "AttackHitbox":
 	damage(5)

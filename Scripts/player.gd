@@ -7,7 +7,7 @@ const BIG_JUMP_VELOCITY := -1400
 const ROTATE_SPEED := 6.0
 
 #attacking valtozok
-@onready var attack_hitbox = $attackhitbox
+@onready var attack_hitbox = $AttackHitbox
 const ATTACK_TIME = 0.15
 var is_attacking = false
 
@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 		
 	#sprite direction
 	if direction != 0:
-		$SandorExport.flip_h = direction < 0
+		$SandorExport.scale.x = direction * 0.5
 
 	#groundpound
 	move_and_slide()

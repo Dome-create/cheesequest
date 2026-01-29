@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
 [ext_resource type="Texture2D" uid="uid://pvxborls7ty2" path="res://Sprites_img/icon.svg" id="2_dewec"]
-[ext_resource type="Script" path="res://Scripts/health.gd" id="24_vlwdv"]
+[ext_resource type="Script" uid="uid://cfu2d4syywvl7" path="res://Scripts/health.gd" id="24_vlwdv"]
 [ext_resource type="Script" uid="uid://bemae2a7h3b26" path="res://Scripts/menus/health_bar.gd" id="25_udjif"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e25a"]
-size = Vector2(51.375, 55.625)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mc3r"]
 animations = [{
@@ -24,28 +21,31 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e25a"]
+size = Vector2(51.375, 55.625)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70hv0"]
 size = Vector2(65, 13)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0e25a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_0e25a")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
 [node name="SandorExport" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.0000038, 3.8146973e-06)
-scale = Vector2(0.4765625, 0.46875)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0mc3r")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource("24_vlwdv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0e25a")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -57,12 +57,12 @@ offset_bottom = 264.9995
 step = 1.0
 script = ExtResource("25_udjif")
 
-[node name="attackhitbox" type="Area2D" parent="."]
+[node name="AttackHitbox" type="Area2D" parent="."]
 collision_mask = 2
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attackhitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 shape = SubResource("RectangleShape2D_70hv0")
 
 [node name="Timer" type="Timer" parent="."]
