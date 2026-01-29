@@ -1,7 +1,8 @@
 extends Area2D
 
+var can_damage := false
 var enemy_health :int
-@export var max_health := 100
+@export var max_health := 25
 
 func _ready() -> void:
 	enemy_health = max_health
@@ -11,7 +12,7 @@ func _ready() -> void:
 
 func die():
 	print("Died")
-	$".".queue_free()
+	$"..".queue_free()
 
 func damage(amount :int):
 	print("Enemy took " + str(amount) + " damage")
@@ -27,6 +28,8 @@ func _on_body_entered(body):
 		body.get_node("Health").take_damage(10)
 
 func _on_area_entered(area: Area2D) -> void:
-	print("I have been hurt :(")
-	#if body.name == "AttackHitbox":
-	damage(5)
+	if area.name == "AttackHitbox" and can_damage:
+		damage(5)
+
+func _on_player_attack_state(attacking: Variant) -> void:
+	can_damage = attacking

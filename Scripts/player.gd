@@ -1,4 +1,7 @@
 extends CharacterBody2D
+
+signal attack_state(attacking)
+
 # BIG JUMP / CHARGE JUMP
 var is_charging_jump := false
 var was_in_air := false
@@ -112,6 +115,7 @@ func _physics_process(delta: float) -> void:
 	
 func start_attack():
 	is_attacking = true
+	emit_signal("attack_state", is_attacking)
 
 	# Position hitbox in front of player
 	$AttackHitbox.position.x = 40 * sign($SandorExport.scale.x)
@@ -119,3 +123,4 @@ func start_attack():
 	$AttackHitbox.position.x = 0 * sign($SandorExport.scale.x)
 
 	is_attacking = false
+	emit_signal("attack_state", is_attacking)
