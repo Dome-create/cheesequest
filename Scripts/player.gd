@@ -72,15 +72,10 @@ func _physics_process(delta: float) -> void:
 	
 func start_attack():
 	is_attacking = true
-	attack_hitbox.monitoring = true
 
 	# Position hitbox in front of player
-	attack_hitbox.position.x = 40 * sign($SandorExport.scale.x)
-
+	$AttackHitbox.position.x = 40 * sign($SandorExport.scale.x)
 	await get_tree().create_timer(ATTACK_TIME).timeout
+	$AttackHitbox.position.x = 0 * sign($SandorExport.scale.x)
 
-	attack_hitbox.monitoring = false
 	is_attacking = false
-	
-
-	
