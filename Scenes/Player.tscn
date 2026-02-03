@@ -214,8 +214,6 @@ shape = SubResource("RectangleShape2D_70hv0")
 wait_time = 30.0
 one_shot = true
 
-[connection signal="explode" from="." to="Health" method="_on_player_explode"]
-
 [node name="coins" type="Node2D" parent="."]
 script = ExtResource("5_5ixxa")
 
@@ -225,9 +223,4 @@ script = ExtResource("5_5ixxa")
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_5ixxa")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
-
-[connection signal="explode" from="." to="Health" method="_on_player_explode"]
 [connection signal="area_entered" from="coins/CoinDetector" to="coins" method="_on_coin_detector_area_entered"]
