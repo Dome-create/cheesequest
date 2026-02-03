@@ -210,6 +210,12 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 shape = SubResource("RectangleShape2D_70hv0")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="explode" from="." to="Health" method="_on_player_explode"]
+
 [node name="coins" type="Node2D" parent="."]
 script = ExtResource("5_5ixxa")
 
