@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
 [ext_resource type="Texture2D" uid="uid://pvxborls7ty2" path="res://Sprites_img/icon.svg" id="2_dewec"]
-[ext_resource type="Script" uid="uid://cfu2d4syywvl7" path="res://Scripts/health.gd" id="24_vlwdv"]
+[ext_resource type="Script" path="res://Scripts/health.gd" id="24_vlwdv"]
 [ext_resource type="Script" uid="uid://bemae2a7h3b26" path="res://Scripts/menus/health_bar.gd" id="25_udjif"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mc3r"]
@@ -65,3 +65,5 @@ monitoring = false
 shape = SubResource("RectangleShape2D_70hv0")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
