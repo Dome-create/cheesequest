@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 signal attack_state(attacking)
-signal coins_changed(coins: int)
 
 # BIG JUMP / CHARGE JUMP
 var is_charging_jump := false
@@ -37,10 +36,6 @@ const DASH_COOLDOWN = 0.5     # Time before you can dash again
 var is_dashing = false
 var dash_timer = 1
 var dash_cooldown_timer = 0.5
-var coins: int = 0
-
-func _ready() -> void:
-	emit_signal("coins_changed", coins)
 
 func _physics_process(delta: float) -> void:
 	# gravity.
@@ -149,6 +144,7 @@ func start_attack():
 
 	is_attacking = false
 	emit_signal("attack_state", is_attacking)
+	
 func speedingmouse():
 	elapsed_sprint_time = $Timer.wait_time - $Timer.time_left
 	print("Elapsed sprint time: " + str(elapsed_sprint_time) + " sec, Multiplier: " + str(multiplier))
@@ -160,4 +156,3 @@ func speedingmouse():
 		multiplier = phase[2]
 	elif elapsed_sprint_time == $Timer.wait_time:
 		emit_signal("explode")
-	
