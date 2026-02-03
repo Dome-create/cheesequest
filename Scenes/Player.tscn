@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://lre4whw1itk"]
+[gd_scene load_steps=10 format=3 uid="uid://lre4whw1itk"]
 
 [ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
 [ext_resource type="Texture2D" uid="uid://pvxborls7ty2" path="res://Sprites_img/icon.svg" id="2_dewec"]
+[ext_resource type="Script" uid="uid://b3rqcxvo6um6i" path="res://Scripts/coin_handler.gd" id="5_5ixxa"]
 [ext_resource type="Script" uid="uid://cfu2d4syywvl7" path="res://Scripts/health.gd" id="24_vlwdv"]
 [ext_resource type="Script" uid="uid://bemae2a7h3b26" path="res://Scripts/menus/health_bar.gd" id="25_udjif"]
 
@@ -26,6 +27,9 @@ size = Vector2(51.375, 55.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70hv0"]
 size = Vector2(65, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixxa"]
+size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0e25a")
@@ -65,3 +69,14 @@ monitoring = false
 shape = SubResource("RectangleShape2D_70hv0")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="coins" type="Node2D" parent="."]
+script = ExtResource("5_5ixxa")
+
+[node name="CoinDetector" type="Area2D" parent="coins"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coins/CoinDetector"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_5ixxa")
+
+[connection signal="area_entered" from="coins/CoinDetector" to="coins" method="_on_coin_detector_area_entered"]
