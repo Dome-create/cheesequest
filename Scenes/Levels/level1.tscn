@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bea1stqc3oav8" path="res://Scripts/vencel_the_enemy.gd" id="4_0xrym"]
 [ext_resource type="Texture2D" uid="uid://bbbuma4oa3l5q" path="res://Sprites_img/Health.png" id="5_c0r4e"]
 [ext_resource type="Script" uid="uid://b32tesr0qb3ii" path="res://Scripts/heal.gd" id="6_m0h5h"]
-[ext_resource type="PackedScene" uid="uid://bu8qtxmbayirx" path="res://Scenes/cracker.tscn" id="7_20uw2"]
+[ext_resource type="PackedScene" path="res://Scenes/cracker.tscn" id="7_20uw2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vonw3"]
 texture = ExtResource("1_k5f4k")
@@ -189,7 +189,16 @@ script = ExtResource("6_m0h5h")
 shape = SubResource("RectangleShape2D_20uw2")
 
 [node name="cracker" parent="." instance=ExtResource("7_20uw2")]
-position = Vector2(-721, -88)
+position = Vector2(-720, -88)
+
+[node name="cracker2" parent="." instance=ExtResource("7_20uw2")]
+position = Vector2(-869, -121)
+
+[node name="cracker3" parent="." instance=ExtResource("7_20uw2")]
+position = Vector2(-1093, -122)
+
+[node name="cracker4" parent="." instance=ExtResource("7_20uw2")]
+position = Vector2(-959, -23)
 
 [connection signal="attack_state" from="Player" to="Vencel the enemy/Area2D" method="_on_player_attack_state"]
 [connection signal="area_entered" from="Vencel the enemy/Area2D" to="Vencel the enemy/Area2D" method="_on_area_entered"]
