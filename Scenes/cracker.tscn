@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr66v0ptepncs"]
+[gd_scene load_steps=4 format=3 uid="uid://bu8qtxmbayirx"]
 
+[ext_resource type="Script" uid="uid://dc0d1whhevgto" path="res://Scripts/coin_disappear.gd" id="1_ah1d1"]
 [ext_resource type="Texture2D" uid="uid://4qcoa8g6da51" path="res://Sprites_img/cheesecracker.png" id="1_btkpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah1d1"]
 size = Vector2(32, 32)
 
 [node name="cracker" type="Node2D"]
+script = ExtResource("1_ah1d1")
 
 [node name="Cheesecracker" type="Sprite2D" parent="."]
 texture = ExtResource("1_btkpa")
@@ -14,3 +16,6 @@ texture = ExtResource("1_btkpa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coin"]
 shape = SubResource("RectangleShape2D_ah1d1")
+
+[connection signal="area_entered" from="coin" to="." method="_on_coin_area_entered"]
+[connection signal="body_entered" from="coin" to="." method="_on_coin_body_entered"]
