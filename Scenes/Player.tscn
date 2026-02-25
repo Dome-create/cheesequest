@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
 [ext_resource type="Texture2D" uid="uid://pvxborls7ty2" path="res://Sprites_img/icon.svg" id="2_dewec"]
-[ext_resource type="Script" uid="uid://b3rqcxvo6um6i" path="res://Scripts/coin_handler.gd" id="5_5ixxa"]
+[ext_resource type="Script" path="res://Scripts/coin_handler.gd" id="5_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://4qcoa8g6da51" path="res://Sprites_img/cheesecracker.png" id="5_nn08x"]
 [ext_resource type="Script" uid="uid://cfu2d4syywvl7" path="res://Scripts/health.gd" id="24_vlwdv"]
 [ext_resource type="Script" uid="uid://bemae2a7h3b26" path="res://Scripts/menus/health_bar.gd" id="25_udjif"]
@@ -27,6 +27,9 @@ animations = [{
 size = Vector2(51.375, 55.625)
 
 [sub_resource type="FontFile" id="FontFile_52ee3"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
