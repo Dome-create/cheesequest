@@ -24,7 +24,7 @@ var sprinting = false
 var smol= -400
 var hanyszo = 0
 
-#dash, and sprint wait is this a reference?!
+#dash, and sprint but wait is this a reference?!
 var elapsed_sprint_time := 0
 @warning_ignore("unused_signal")
 signal explode
@@ -149,6 +149,7 @@ func start_attack():
 
 	is_attacking = false
 	emit_signal("attack_state", is_attacking)
+
 func speedingmouse():
 	elapsed_sprint_time = $Timer.wait_time - $Timer.time_left
 	print("Elapsed sprint time: " + str(elapsed_sprint_time) + " sec, Multiplier: " + str(multiplier))
@@ -158,6 +159,6 @@ func speedingmouse():
 		multiplier = phase[1]
 	elif elapsed_sprint_time == 12:
 		multiplier = phase[2]
-	elif elapsed_sprint_time == $Timer.wait_time:
+	elif elapsed_sprint_time == 30:
 		emit_signal("explode")
 	
