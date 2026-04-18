@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://lre4whw1itk"]
+[gd_scene format=3 uid="uid://lre4whw1itk"]
 
 [ext_resource type="Script" uid="uid://2tbaxyixqyrc" path="res://Scripts/player.gd" id="1_0e25a"]
 [ext_resource type="Texture2D" uid="uid://pvxborls7ty2" path="res://Sprites_img/icon.svg" id="2_dewec"]
-[ext_resource type="Script" path="res://Scripts/coin_handler.gd" id="5_5ixxa"]
+[ext_resource type="Script" uid="uid://b3rqcxvo6um6i" path="res://Scripts/coin_handler.gd" id="5_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://4qcoa8g6da51" path="res://Sprites_img/cheesecracker.png" id="5_nn08x"]
 [ext_resource type="Script" uid="uid://cfu2d4syywvl7" path="res://Scripts/health.gd" id="24_vlwdv"]
 [ext_resource type="Script" uid="uid://bemae2a7h3b26" path="res://Scripts/menus/health_bar.gd" id="25_udjif"]
@@ -30,6 +30,15 @@ size = Vector2(51.375, 55.625)
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -162,29 +171,29 @@ size = Vector2(65, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixxa"]
 size = Vector2(64, 64)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1472663683]
 script = ExtResource("1_0e25a")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=275649078]
 zoom = Vector2(2, 2)
 
-[node name="SandorExport" type="AnimatedSprite2D" parent="."]
+[node name="SandorExport" type="AnimatedSprite2D" parent="." unique_id=1544061056]
 position = Vector2(1.0000038, 3.8146973e-06)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0mc3r")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Health" type="Node2D" parent="."]
+[node name="Health" type="Node2D" parent="." unique_id=1727524309]
 script = ExtResource("24_vlwdv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=539159455]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_0e25a")
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1262145291]
 
-[node name="health" type="ProgressBar" parent="CanvasGroup"]
+[node name="health" type="ProgressBar" parent="CanvasGroup" unique_id=1756227141]
 offset_left = -25.0
 offset_top = 235.0
 offset_right = 475.0
@@ -192,7 +201,7 @@ offset_bottom = 264.9995
 step = 1.0
 script = ExtResource("25_udjif")
 
-[node name="Label" type="Label" parent="CanvasGroup"]
+[node name="Label" type="Label" parent="CanvasGroup" unique_id=1281960866]
 offset_left = -422.0
 offset_top = 211.0
 offset_right = -379.0
@@ -201,28 +210,28 @@ theme_override_fonts/font = SubResource("FontFile_52ee3")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
-[node name="Cheesecracker" type="Sprite2D" parent="CanvasGroup"]
+[node name="Cheesecracker" type="Sprite2D" parent="CanvasGroup" unique_id=1549742771]
 position = Vector2(-451, 240.00002)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_nn08x")
 
-[node name="AttackHitbox" type="Area2D" parent="."]
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=2117222770]
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=1445808733]
 shape = SubResource("RectangleShape2D_70hv0")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=708185286]
 wait_time = 30.0
 one_shot = true
 
-[node name="coins" type="Node2D" parent="."]
+[node name="coins" type="Node2D" parent="." unique_id=1295481867]
 script = ExtResource("5_5ixxa")
 
-[node name="CoinDetector" type="Area2D" parent="coins"]
+[node name="CoinDetector" type="Area2D" parent="coins" unique_id=1304564368]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="coins/CoinDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coins/CoinDetector" unique_id=1414001306]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_5ixxa")
 
