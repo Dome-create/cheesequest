@@ -3,6 +3,8 @@ extends CharacterBody2D
 signal attack_state(attacking)
 signal coins_changed(coins: int)
 
+var uncrouch_is_safe := true
+
 # BIG JUMP / CHARGE JUMP
 var is_charging_jump := false
 var was_in_air := false
@@ -138,19 +140,23 @@ func _physics_process(delta: float) -> void:
 	
 	#crouch
 	if Input.is_action_just_pressed("Crouch"):
+		uncrouch_is_safe = true
 		$"coins".scale.y = 0.5
 		$"AttackHitbox".scale.y = 0.5
 		$"CollisionShape2D".scale.y = 0.5
 		$"SandorExport".scale.y = 0.25
 		
-	if Input.is_action_just_released("Crouch"):
+	if not Input.is_action_pressed("Crouch") and uncrouch_is_safe:
 		$"coins".scale.y = 1
 		$"AttackHitbox".scale.y = 1
 		$"CollisionShape2D".scale.y = 1
 		$"SandorExport".scale.y = 0.5
+		uncrouch_is_safe = false
 	
 	#groundpound
 	move_and_slide()
+
+
 
 func start_attack():
 	is_attacking = true
@@ -175,4 +181,11 @@ func speedingmouse():
 		multiplier = phase[2]
 	elif elapsed_sprint_time == 30:
 		emit_signal("explode")
-	
+
+func _on_safe_uncrouch_det_body_entered(body: Node2D) -> void:
+	if body.name != 'Player':
+		uncrouch_is_safe = false
+
+func _on_safe_uncrouch_det_body_exited(body: Node2D) -> void:
+	if body.name != 'Player':
+		uncrouch_is_safe = true

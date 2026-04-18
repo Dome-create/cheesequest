@@ -242,3 +242,5 @@ position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_nn08x")
 
 [connection signal="area_entered" from="coins/CoinDetector" to="coins" method="_on_coin_detector_area_entered"]
+[connection signal="body_entered" from="SafeUncrouchDet" to="." method="_on_safe_uncrouch_det_body_entered"]
+[connection signal="body_exited" from="SafeUncrouchDet" to="." method="_on_safe_uncrouch_det_body_exited"]
