@@ -214,6 +214,8 @@ monitoring = false
 shape = SubResource("RectangleShape2D_70hv0")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
 
 [node name="coins" type="Node2D" parent="."]
 script = ExtResource("5_5ixxa")
