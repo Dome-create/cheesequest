@@ -1,6 +1,6 @@
 extends Area2D
 
-var can_damage := false
+var can_damage := true
 var enemy_health :int
 @export var max_health := 25
 
@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func die():
 	print("Died")
+	$".".visible = false
 	$"..".queue_free()
 
 func damage(amount :int):
@@ -31,5 +32,5 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.name == "AttackHitbox" and can_damage:
 		damage(5)
 
-func _on_player_attack_state(attacking: Variant) -> void:
-	can_damage = attacking
+func _on_player_attack_state(is_attacking: Variant) -> void:
+	can_damage = is_attacking
