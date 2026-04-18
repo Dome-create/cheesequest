@@ -13,7 +13,7 @@ const ROTATE_SPEED := 6.0
 #attacking valtozok
 @onready var attack_hitbox = $AttackHitbox
 const ATTACK_TIME = 0.15
-var is_attacking = false
+var is_attacking := false
 
 #walkin
 var dash_direction = 0
@@ -57,6 +57,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		@warning_ignore("integer_division")
 		velocity.y = JUMP_VELOCITY / 4
+		is_charging_jump = false
 	# --- NORMAL JUMP ---
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_charging_jump:
 		velocity.y = JUMP_VELOCITY
@@ -134,10 +135,23 @@ func _physics_process(delta: float) -> void:
 	#sprite direction
 	if direction != 0:
 		$SandorExport.scale.x = direction * 0.5
-
+	
+	#crouch
+	if Input.is_action_just_pressed("Crouch"):
+		$"coins".scale.y = 0.5
+		$"AttackHitbox".scale.y = 0.5
+		$"CollisionShape2D".scale.y = 0.5
+		$"SandorExport".scale.y = 0.25
+		
+	if Input.is_action_just_released("Crouch"):
+		$"coins".scale.y = 1
+		$"AttackHitbox".scale.y = 1
+		$"CollisionShape2D".scale.y = 1
+		$"SandorExport".scale.y = 0.5
+	
 	#groundpound
 	move_and_slide()
-	
+
 func start_attack():
 	is_attacking = true
 	emit_signal("attack_state", is_attacking)

@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e25a"]
-size = Vector2(51.375, 55.625)
+size = Vector2(55, 55)
 
 [sub_resource type="FontFile" id="FontFile_52ee3"]
 subpixel_positioning = 0
@@ -171,6 +171,9 @@ size = Vector2(65, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixxa"]
 size = Vector2(64, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn08x"]
+size = Vector2(55, 55)
+
 [node name="Player" type="CharacterBody2D" unique_id=1472663683]
 script = ExtResource("1_0e25a")
 
@@ -178,7 +181,6 @@ script = ExtResource("1_0e25a")
 zoom = Vector2(2, 2)
 
 [node name="SandorExport" type="AnimatedSprite2D" parent="." unique_id=1544061056]
-position = Vector2(1.0000038, 3.8146973e-06)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0mc3r")
 animation = &"idle"
@@ -188,7 +190,6 @@ autoplay = "idle"
 script = ExtResource("24_vlwdv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=539159455]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_0e25a")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1262145291]
@@ -219,7 +220,7 @@ texture = ExtResource("5_nn08x")
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=1445808733]
+[node name="AttackHitboxShape" type="CollisionShape2D" parent="AttackHitbox" unique_id=1445808733]
 shape = SubResource("RectangleShape2D_70hv0")
 
 [node name="Timer" type="Timer" parent="." unique_id=708185286]
@@ -232,7 +233,12 @@ script = ExtResource("5_5ixxa")
 [node name="CoinDetector" type="Area2D" parent="coins" unique_id=1304564368]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coins/CoinDetector" unique_id=1414001306]
-position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_5ixxa")
+
+[node name="SafeUncrouchDet" type="Area2D" parent="." unique_id=1086626502]
+
+[node name="Shape" type="CollisionShape2D" parent="SafeUncrouchDet" unique_id=1013199993]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_nn08x")
 
 [connection signal="area_entered" from="coins/CoinDetector" to="coins" method="_on_coin_detector_area_entered"]

@@ -200,6 +200,7 @@ position = Vector2(-1093, -122)
 [node name="cracker4" parent="." unique_id=975535134 instance=ExtResource("7_20uw2")]
 position = Vector2(-959, -23)
 
+[connection signal="attack_state" from="Player" to="Vencel the enemy/Area2D" method="_on_player_attack_state"]
 [connection signal="area_entered" from="Vencel the enemy/Area2D" to="Vencel the enemy/Area2D" method="_on_area_entered"]
 [connection signal="body_entered" from="Vencel the enemy/Area2D" to="Vencel the enemy/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Health/Area2D" to="Health/Area2D" method="_on_body_entered"]
