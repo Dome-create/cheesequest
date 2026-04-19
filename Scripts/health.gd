@@ -35,4 +35,4 @@ func die():
 	get_tree().change_scene_to_file("res://Scenes/menus/death_screen.tscn")
 
 func _on_player_explode() -> void:
-	die()
+	take_damage(9999)

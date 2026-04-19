@@ -22,6 +22,7 @@ var dash_direction = 0
 const WALK = 200
 const JUMP_VELOCITY = -800
 const SPRINT = 400
+const CROUCH_SPEED := 150
 var sprinting = false
 var smol= -400
 var hanyszo = 0
@@ -115,7 +116,9 @@ func _physics_process(delta: float) -> void:
 		if dash_timer <= 0:
 			is_dashing = false
 	else:
-		if Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("Crouch"):
+			velocity.x = direction * CROUCH_SPEED
+		elif Input.is_action_pressed("sprint") and not Input.is_action_pressed("Crouch"):
 			velocity.x = direction * SPRINT * multiplier
 		else:
 			velocity.x = direction * WALK
