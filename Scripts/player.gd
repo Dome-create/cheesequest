@@ -87,7 +87,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		start_attack()
 
-		
 	if Input.is_action_just_pressed("esc"):
 		get_tree().change_scene_to_file("res://Scenes/menus/Main_Menu.tscn")
 	
@@ -122,16 +121,17 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPRINT * multiplier
 		else:
 			velocity.x = direction * WALK
-		if Input.is_action_just_pressed("sprint"):
-			sprinting       = true
+		if Input.is_action_just_pressed("sprint") and velocity.x != 0:
+			sprinting = true
 			$Timer.start()
-		if Input.is_action_just_released("sprint"):
+		elif Input.is_action_just_released("sprint") or velocity.x == 0:
 			$Timer.stop()
-			sprinting=false
+			sprinting = false
 			multiplier = 1
-	if sprinting== true:
-		speedingmouse()
 		
+	if sprinting == true and velocity.x != 0:
+		speedingmouse()
+
 
 # Get the input direction and handle the movement/deceleration.
 	if Input.is_action_pressed("down") and Input.is_action_pressed("attack") and not is_on_floor():
@@ -158,8 +158,6 @@ func _physics_process(delta: float) -> void:
 	
 	#groundpound
 	move_and_slide()
-
-
 
 func start_attack():
 	is_attacking = true
